@@ -1,212 +1,152 @@
 <!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cherry-11 | From Litchi 🌸</title><style>
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background: #08060c;
-  color: #fff4f5;
-  font-family: Georgia, serif;
-}
-
-.scene {
-  min-height: 100vh;
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-  padding: 20px 0;
-  background: radial-gradient(ellipse at center, #50101f, #1c0913 50%, #05050a);
-}
-
-.stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(#ffe6b0 1px, transparent 1.5px),
-    radial-gradient(#e9a0b5 1px, transparent 1.5px);
-  background-size: 83px 83px, 127px 127px;
-  background-position: 0 0, 40px 30px;
-  animation: twinkle 4s ease-in-out infinite alternate;
-}
-
-#petals {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.petal {
-  position: absolute;
-  top: -30px;
-  animation: fall linear forwards;
-}
-
-.content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  padding: 24px;
-  width: min(100%, 560px);
-  animation: appear 1s ease both;
-}
-
-.flower {
-  font-size: 48px;
-  display: block;
-  animation: float 4s ease-in-out infinite;
-}
-
-.small {
-  font: 11px Arial, sans-serif;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #e8b7a5;
-  margin-top: 24px;
-}
-
-h1 {
-  font-size: clamp(36px, 10vw, 62px);
-  font-weight: normal;
-  line-height: 1.15;
-  margin: 22px 0;
-}
-
-h1 span {
-  display: block;
-  color: #ffb0c3;
-  font-style: italic;
-  text-shadow: 0 0 28px #d12e5266;
-}
-
-p {
-  color: #ead1d9;
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-button {
-  margin-top: 22px;
-  border: 1px solid #e9a7ad;
-  border-radius: 40px;
-  padding: 16px 24px;
-  background: linear-gradient(120deg, #7c1831, #bd3854);
-  color: white;
-  font-size: 12px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  box-shadow: 0 0 28px #c42c4b55;
-}
-
-button:active {
-  transform: scale(.96);
-}
-
-@keyframes twinkle {
-  to { opacity: .4; }
-}
-
-@keyframes float {
-  50% { transform: translateY(-12px) rotate(8deg); }
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fall {
-  to { transform: translateY(110vh) rotate(500deg); opacity: 0; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-  }
-}
-</style></head><body>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#160817">
+<title>Cherry-11 💗 A Birthday Universe</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#160817;color:#fff5fa;font-family:Georgia,serif}
+.scene{position:relative;min-height:100vh;min-height:100dvh;overflow:hidden;display:grid;place-items:center;text-align:center;padding:24px 16px;background:radial-gradient(ellipse at 50% 40%,#68203e,#2b102b 48%,#100815 85%)}
+#confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.content{position:relative;z-index:2;width:min(100%,520px);animation:appear 1s ease both}
+.kicker{font:10px Arial,sans-serif;letter-spacing:4px;color:#ffc6d7;text-transform:uppercase}
+h1{font-weight:normal;font-size:clamp(38px,11vw,65px);line-height:1.08;margin:22px 0}
+h1 span{display:block;color:#ffb3d0;font-style:italic;text-shadow:0 0 25px #ff4e9b88}
+p{line-height:1.8;color:#f4dce8;font-size:16px}
+button{border:1px solid #ffd1df;border-radius:40px;padding:16px 23px;background:linear-gradient(120deg,#a51f61,#e34b86);color:white;font-size:12px;letter-spacing:1px;margin:12px 4px;box-shadow:0 0 25px #ff4b9366;cursor:pointer}
+button:active{transform:scale(.95)}
+.flower{font-size:48px;animation:float 3s ease-in-out infinite}
+.cake{position:relative;width:min(76vw,300px);height:250px;margin:15px auto 25px}
+.plate{position:absolute;bottom:8px;left:0;width:100%;height:22px;border-radius:50%;background:linear-gradient(#fff2f7,#c9a0b5);box-shadow:0 0 28px #ffb4d855}
+.tier{position:absolute;left:10%;width:80%;height:95px;bottom:28px;border-radius:14px 14px 24px 24px;background:linear-gradient(90deg,#9d285d,#ff9ec4 42%,#d64c88);box-shadow:inset 0 -12px #9c285b,0 0 25px #ff74ae44}
+.tier:before{content:"";position:absolute;top:0;left:0;width:100%;height:22px;border-radius:50%;background:#ffe0ed;box-shadow:0 7px 0 #f6a7c9}
+.cream{position:absolute;bottom:120px;left:19%;width:62%;height:62px;border-radius:12px 12px 18px 18px;background:linear-gradient(90deg,#f8b7d0,#fff0f5,#ef9bc0)}
+.cream:before{content:"";position:absolute;top:-8px;width:100%;height:18px;border-radius:50%;background:#fff0f5}
+.cherry{position:absolute;bottom:155px;left:48%;font-size:28px}
+.candle{position:absolute;bottom:171px;width:12px;height:49px;border-radius:5px;background:repeating-linear-gradient(45deg,#fff5fa 0 5px,#d84b92 5px 10px)}
+.c1{left:32%}.c2{left:48%}.c3{left:64%}
+.flame{position:absolute;top:-20px;left:1px;width:10px;height:17px;border-radius:50% 50% 45% 45%;background:#ffcf69;box-shadow:0 0 12px 5px #ff9a45;animation:flicker .18s infinite alternate}
+.smoke{display:none;position:absolute;top:-30px;left:1px;font-size:25px}
+.blown .flame{display:none}
+.blown .smoke{display:block;animation:smoke 1.5s forwards}
+.note{font-size:12px;color:#ffc2d8}
+@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{50%{transform:translateY(-12px) rotate(5deg)}}
+@keyframes flicker{to{transform:scale(.8) rotate(5deg);opacity:.8}}
+@keyframes smoke{to{transform:translateY(-35px);opacity:0}}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important}}
+</style>
+</head>
+<body>
 <main class="scene">
-  <div class="stars"></div>
-  <div id="petals"></div>  <div class="content" id="content">
-    <span class="flower">🌸</span>
-    <div class="small">A secret transmission for one special soul</div>
-    <h1>Something special awaits <span>Cherry.</span></h1>
-    <p>Explorer Litchi has prepared a little universe just for you. Are you ready to discover it?</p>
-    <button id="start">OPEN YOUR SURPRISE ✦</button>
-  </div>
-</main><script>
-const content = document.getElementById('content');
-const petals = document.getElementById('petals');
-
-function makePetal() {
-  const p = document.createElement('span');
-  p.className = 'petal';
-  p.textContent = ['🌸', '✿', '❀'][Math.floor(Math.random() * 3)];
-  p.style.left = Math.random() * 100 + '%';
-  p.style.fontSize = (12 + Math.random() * 15) + 'px';
-
-  const duration = 7 + Math.random() * 6;
-  p.style.animationDuration = duration + 's';
-  petals.appendChild(p);
-
-  setTimeout(() => p.remove(), duration * 1000);
+<div id="confetti"></div>
+<div class="content" id="content">
+<div class="flower">🌸</div>
+<div class="kicker">A secret from your Litchi</div>
+<h1>A little universe <span>for Cherry</span></h1>
+<p>Someone wonderful deserves a little magic today. Ready, birthday girl? 💗</p>
+<button id="start">OPEN YOUR SURPRISE ✨</button>
+<div class="note">🎧 Tap to begin your celebration</div>
+</div>
+</main>
+<script>
+const content=document.getElementById('content');
+const confetti=document.getElementById('confetti');
+let audio=null,musicTimer=null,musicStep=0;function sound(freq,duration,type='sine',volume=.07){
+if(!audio)return;
+const osc=audio.createOscillator();
+const gain=audio.createGain();
+osc.type=type;osc.frequency.value=freq;
+gain.gain.setValueAtTime(volume,audio.currentTime);
+gain.gain.exponentialRampToValueAtTime(.001,audio.currentTime+duration);
+osc.connect(gain);gain.connect(audio.destination);
+osc.start();osc.stop(audio.currentTime+duration);
 }
-
-for (let i = 0; i < 12; i++) {
-  setTimeout(makePetal, i * 300);
+function startMusic(){
+const AC=window.AudioContext||window.webkitAudioContext;
+if(!AC)return;
+if(!audio)audio=new AC();
+if(audio.state==='suspended')audio.resume();
+if(musicTimer)return;
+const notes=[523,659,784,659,587,698,880,698];
+musicTimer=setInterval(()=>{
+sound(notes[musicStep%notes.length],.38,'sine',.035);
+if(musicStep%4===0)sound(notes[musicStep%notes.length]/2,.5,'triangle',.025);
+musicStep++;
+},430);
 }
-setInterval(makePetal, 900);
-
-function showBirthday() {
-  content.innerHTML = `
-    <span class="flower">🎈🌸🎈</span>
-    <div class="small">Today, the universe celebrates you</div>
-    <h1>HAPPY BIRTHDAY <span>CHERRY!</span></h1>
-    <p>To my favourite artist, my Cherry 🍒</p>
-    <p>From your Litchi, with a million little wishes. 💗</p>
-    <button id="celebrate">LET'S CELEBRATE ✨</button>
-  `;
-
-  for (let i = 0; i < 35; i++) {
-    setTimeout(makePetal, i * 70);
-  }
-
-  document.getElementById('celebrate').addEventListener('click', showCake);
+function partySound(){
+sound(660,.12,'triangle',.08);
+setTimeout(()=>sound(880,.18,'triangle',.08),100);
+setTimeout(()=>sound(1046,.35,'sine',.07),220);
 }
-
-function showCake() {
-  content.innerHTML = `
-    <span class="flower">🎂🌸🎂</span>
-    <div class="small">Make a wish, Cherry</div>
-    <h1>Your birthday <span>cake!</span></h1>
-    <p>Close your eyes, make a wish, and blow out the candles. 💗</p>
-    <button id="blow">BLOW THE CANDLES ✨</button>
-  `;
-
-  document.getElementById('blow').addEventListener('click', showWish);
+function burst(count=100){
+const colors=['#ffb3d0','#ffd66b','#ffffff','#e65e9a','#c8a4ff'];
+for(let i=0;i<count;i++){
+const bit=document.createElement('span');
+bit.style.cssText="position:absolute;left:${Math.random()*100}%;top:-15px;width:${5+Math.random()*7}px;height:${8+Math.random()*10}px;background:${colors[Math.floor(Math.random()*colors.length)]};border-radius:2px;animation:fall ${2+Math.random()*3}s linear forwards;transform:rotate(${Math.random()*360}deg)";
+confetti.appendChild(bit);
+setTimeout(()=>bit.remove(),5200);
 }
-
-function showWish() {
-  content.innerHTML = `
-    <span class="flower">💨🎂✨</span>
-    <div class="small">A little wish from your Litchi</div>
-    <h1>Wish sent to the <span>stars!</span></h1>
-    <p>May your dreams bloom beautifully, Cherry. 🌸</p>
-    <p>Keep shining, keep creating, and never stop being wonderfully YOU. 💗</p>
-    <button id="again">RELIVE THE MAGIC 🌸</button>
-  `;
-
-  document.getElementById('again').addEventListener('click', showBirthday);
 }
+function showBirthday(){
+startMusic();partySound();burst(120);
+content.innerHTML=`
 
-document.getElementById('start').addEventListener('click', showBirthday);
-</script></body>
+ <div class="flower">🎉💗🎉</div>
+ <div class="kicker">Today the universe celebrates you</div>
+ <h1>HAPPY BIRTHDAY <span>CHERRY!</span></h1>
+ <p>To my favourite artist, my Cherry 🍒</p>
+ <p>From your Litchi, with a million little wishes. May your world always be full of colour, love and magic. 💕</p>
+ <button id="cakeButton">BRING ME MY CAKE 🎂</button>`;
+ document.getElementById('cakeButton').addEventListener('click',showCake);
+}
+function showCake(){
+ partySound();
+ content.innerHTML=`
+ <div class="kicker">Made with love, just for you</div>
+ <h1>Make a <span>wish, Cherry!</span></h1>
+ <div class="cake" id="cake">
+  <div class="plate"></div><div class="tier"></div><div class="cream"></div>
+  <div class="cherry">🍒</div>
+  <div class="candle c1"><i class="flame"></i><i class="smoke">〰</i></div>
+  <div class="candle c2"><i class="flame"></i><i class="smoke">〰</i></div>
+  <div class="candle c3"><i class="flame"></i><i class="smoke">〰</i></div>
+ </div>
+ <p>Close your eyes, make your wish, and blow out the candles. 🕯️</p>
+ <button id="blow">BLOW THE CANDLES 💨</button>
+ <div class="note">Turn your sound on for the birthday magic 🎶</div>`;
+ document.getElementById('blow').addEventListener('click',showWish);
+}
+function showWish(){
+ document.getElementById('cake').classList.add('blown');
+ sound(330,.5,'sine',.06);
+ setTimeout(()=>sound(220,.7,'sine',.04),180);
+ setTimeout(partySound,500);
+ burst(180);
+ content.innerHTML=`
+ <div class="flower">🎆🎉🎆</div>
+ <div class="kicker">Wish sent to the stars</div>
+ <h1>Make every dream <span>come true!</span></h1>
+ <p>May you keep creating beautiful things, finding your people, laughing loudly, and shining in your own way.</p>
+ <p>With all my love, <span style="color:#ffb3d0;font-style:italic">your Litchi 💗</span></p>
+ <button id="space">LAUNCH TO CHERRY-11 🚀</button>`;
+ document.getElementById('space').addEventListener('click',()=>{
+  partySound();burst(140);
+  content.innerHTML=`
+  <div class="flower">🚀🪐✨</div>
+  <div class="kicker">Destination reached</div>
+  <h1>Welcome to <span>Cherry-11!</span></h1>
+  <p>A tiny magical planet in a huge universe, made for one extraordinary girl.</p>
+  <p>Mission one: keep being wonderfully YOU. 🍒💗</p>
+  <button id="replay">REPLAY YOUR BIRTHDAY 🎂</button>`;
+  document.getElementById('replay').addEventListener('click',showBirthday);
+ });
+}
+document.getElementById('start').addEventListener('click',showBirthday);
+</script>
+</body>
 </html>
+  
