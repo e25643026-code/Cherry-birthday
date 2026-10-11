@@ -72,22 +72,14 @@ document.getElementById('start').addEventListener('click',()=>{
   for(let i=0;i<45;i++){
     setTimeout(makePetal,i*80);
   }
-  document.getElementById('celebrate').addEventListener('click',()=>{
-  document.querySelector('.content').innerHTML = `
-  <span class="flower">🎂🌸🎂</span>
-  <div class="small">MAKE A WISH, CHERRY</div>
-  <h1>Your birthday <span>cake!</span></h1>
-  <p>Close your eyes, make a wish, and blow out the candles. 💗</p>
-  <button id="blow">BLOW THE CANDLES ✨</button>
-`;
-});
+ document.getElementById('celebrate').addEventListener('click',()=>{
+document.querySelector('.content').innerHTML = "<span class="flower">🎂🌸🎂</span> <div class="small">MAKE A WISH, CHERRY</div> <h1>Your birthday <span>cake!</span></h1> <p>Close your eyes, make a wish, and blow out the candles. 💗</p> <button id="blow">BLOW THE CANDLES ✨</button>";
+
 document.getElementById('blow').addEventListener('click',()=>{
-  document.querySelector('.content').innerHTML = `
-    <span class="flower">💨🎂✨</span>
-    <h1>Wish sent to the <span>stars!</span></h1>
-    <p>May your dreams bloom beautifully, Cherry. 🌸</p>
-  `;
+document.querySelector('.content').innerHTML = "<span class="flower">💨🎂✨</span> <h1>Wish sent to the <span>stars!</span></h1> <p>May your dreams bloom beautifully, Cherry. 🌸</p>";
+});
 });
 </script>
+
 </body>
 </html>
