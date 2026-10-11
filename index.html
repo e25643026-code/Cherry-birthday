@@ -61,6 +61,21 @@ function makePetal(){
 for(let i=0;i<12;i++)setTimeout(makePetal,i*350);
 setInterval(makePetal,850);
 document.getElementById('start').addEventListener('click',()=>{
+  document.querySelector('.content').innerHTML = `
+    <span class="flower">🎈🌸🎈</span>
+    <div class="small">TODAY, THE UNIVERSE CELEBRATES YOU</div>
+    <h1>HAPPY BIRTHDAY <span>CHERRY!</span></h1>
+    <p>To my favourite artist, my Cherry 🍒</p>
+    <p>From your Litchi, with a million little wishes. 💗</p>
+    <button id="celebrate">LET'S CELEBRATE ✨</button>
+  `;
+  for(let i=0;i<45;i++){
+    setTimeout(makePetal,i*80);
+  }
+  document.getElementById('celebrate').addEventListener('click',()=>{
+    alert('The celebration has only just begun, Cherry! 🌸🎂');
+  });
+});
  document.getElementById('message').textContent='Mission accepted, Explorer Litchi. 🌌 The journey begins soon...';
  document.getElementById('start').textContent='MISSION ACCEPTED ✓';
  document.querySelector('h1').innerHTML='The universe<br>is waiting, <span>Cherry.</span>';
