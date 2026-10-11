@@ -1,51 +1,149 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cherry-11 | From Litchi 🌸</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;overflow:hidden;background:#08060c;color:#fff4f5;font-family:Georgia,serif}
-.scene{height:100vh;height:100dvh;width:100%;display:grid;place-items:center;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 45%,#50101f 0%,#1c0913 42%,#05050a 80%)}
-.stars{position:absolute;inset:0;background-image:radial-gradient(#ffe6b0 1px,transparent 1.5px),radial-gradient(#e9a0b5 1px,transparent 1.5px);background-size:83px 83px,127px 127px;background-position:0 0,40px 30px;animation:twinkle 4s ease-in-out infinite alternate}
-.glow{position:absolute;width:260px;height:260px;border-radius:50%;background:#a51c3b22;filter:blur(35px);animation:pulse 4s infinite}
-.content{position:relative;text-align:center;padding:25px;width:min(100%,560px);animation:appear 1.5s ease both}
-.flower{font-size:46px;display:block;animation:float 4s ease-in-out infinite}
-.small{font:11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:#e8b7a5;margin-top:24px}
-h1{font-size:clamp(38px,10vw,65px);font-weight:normal;line-height:1.12;margin:22px 0}
-h1 span{display:block;color:#ffb0c3;font-style:italic;text-shadow:0 0 28px #d12e5266}
-p{color:#d9bdc5;line-height:1.8;font-size:16px}
-button{margin-top:25px;border:1px solid #e9a7ad;border-radius:40px;padding:16px 25px;background:linear-gradient(120deg,#7c1831,#bd3854);color:white;letter-spacing:1px;font-size:12px;cursor:pointer;box-shadow:0 0 28px #c42c4b33;animation:buttonGlow 2.5s infinite}
-button:active{transform:scale(.96)}
-#petals{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.petal{position:absolute;top:-30px;animation:fall linear forwards;opacity:.8}
-#message{font-size:13px;color:#ffb7c8;min-height:22px}
-@keyframes twinkle{to{opacity:.35;transform:scale(1.03)}}
-@keyframes pulse{50%{transform:scale(1.3);opacity:.6}}
-@keyframes float{50%{transform:translateY(-12px) rotate(8deg)}}
-@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-@keyframes buttonGlow{50%{box-shadow:0 0 35px #f24c704d}}
-@keyframes fall{to{transform:translateY(110vh) rotate(500deg);opacity:0}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
-</style>
-</head>
-<body>
+<title>Cherry-11 | From Litchi 🌸</title><style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #08060c;
+  color: #fff4f5;
+  font-family: Georgia, serif;
+}
+
+.scene {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 20px 0;
+  background: radial-gradient(ellipse at center, #50101f, #1c0913 50%, #05050a);
+}
+
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(#ffe6b0 1px, transparent 1.5px),
+    radial-gradient(#e9a0b5 1px, transparent 1.5px);
+  background-size: 83px 83px, 127px 127px;
+  background-position: 0 0, 40px 30px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+}
+
+#petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+  top: -30px;
+  animation: fall linear forwards;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 24px;
+  width: min(100%, 560px);
+  animation: appear 1s ease both;
+}
+
+.flower {
+  font-size: 48px;
+  display: block;
+  animation: float 4s ease-in-out infinite;
+}
+
+.small {
+  font: 11px Arial, sans-serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #e8b7a5;
+  margin-top: 24px;
+}
+
+h1 {
+  font-size: clamp(36px, 10vw, 62px);
+  font-weight: normal;
+  line-height: 1.15;
+  margin: 22px 0;
+}
+
+h1 span {
+  display: block;
+  color: #ffb0c3;
+  font-style: italic;
+  text-shadow: 0 0 28px #d12e5266;
+}
+
+p {
+  color: #ead1d9;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+button {
+  margin-top: 22px;
+  border: 1px solid #e9a7ad;
+  border-radius: 40px;
+  padding: 16px 24px;
+  background: linear-gradient(120deg, #7c1831, #bd3854);
+  color: white;
+  font-size: 12px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 28px #c42c4b55;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+@keyframes twinkle {
+  to { opacity: .4; }
+}
+
+@keyframes float {
+  50% { transform: translateY(-12px) rotate(8deg); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(500deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+</style></head><body>
 <main class="scene">
-<div class="stars"></div>
-<div class="glow"></div>
-<div id="petals"></div>
-<div class="content">
-<span class="flower">🌸</span>
-<div class="small">A secret transmission for one special soul</div>
-<h1>Something special<br>awaits <span>Cherry.</span></h1>
-<p>Explorer Litchi has prepared a little universe just for you.<br>Are you ready to discover it?</p>
-<button id="start">OPEN YOUR SURPRISE ✦</button>
-<p id="message"></p>
-</div>
-</main>
-<script>
+  <div class="stars"></div>
+  <div id="petals"></div>  <div class="content" id="content">
+    <span class="flower">🌸</span>
+    <div class="small">A secret transmission for one special soul</div>
+    <h1>Something special awaits <span>Cherry.</span></h1>
+    <p>Explorer Litchi has prepared a little universe just for you. Are you ready to discover it?</p>
+    <button id="start">OPEN YOUR SURPRISE ✦</button>
+  </div>
+</main><script>
+const content = document.getElementById('content');
 const petals = document.getElementById('petals');
 
 function makePetal() {
@@ -54,49 +152,61 @@ function makePetal() {
   p.textContent = ['🌸', '✿', '❀'][Math.floor(Math.random() * 3)];
   p.style.left = Math.random() * 100 + '%';
   p.style.fontSize = (12 + Math.random() * 15) + 'px';
-  const t = 7 + Math.random() * 6;
-  p.style.animationDuration = t + 's';
+
+  const duration = 7 + Math.random() * 6;
+  p.style.animationDuration = duration + 's';
   petals.appendChild(p);
-  setTimeout(() => p.remove(), t * 1000);
+
+  setTimeout(() => p.remove(), duration * 1000);
 }
 
 for (let i = 0; i < 12; i++) {
-  setTimeout(makePetal, i * 350);
+  setTimeout(makePetal, i * 300);
 }
-setInterval(makePetal, 850);
+setInterval(makePetal, 900);
 
-document.getElementById('start').addEventListener('click', () => {
-  document.querySelector('.content').innerHTML = `
+function showBirthday() {
+  content.innerHTML = `
     <span class="flower">🎈🌸🎈</span>
-    <div class="small">TODAY, THE UNIVERSE CELEBRATES YOU</div>
+    <div class="small">Today, the universe celebrates you</div>
     <h1>HAPPY BIRTHDAY <span>CHERRY!</span></h1>
     <p>To my favourite artist, my Cherry 🍒</p>
     <p>From your Litchi, with a million little wishes. 💗</p>
     <button id="celebrate">LET'S CELEBRATE ✨</button>
   `;
 
-  for (let i = 0; i < 45; i++) {
-    setTimeout(makePetal, i * 80);
+  for (let i = 0; i < 35; i++) {
+    setTimeout(makePetal, i * 70);
   }
 
-  document.getElementById('celebrate').addEventListener('click', () => {
-    document.querySelector('.content').innerHTML = `
-      <span class="flower">🎂🌸🎂</span>
-      <div class="small">MAKE A WISH, CHERRY</div>
-      <h1>Your birthday <span>cake!</span></h1>
-      <p>Close your eyes, make a wish, and blow out the candles. 💗</p>
-      <button id="blow">BLOW THE CANDLES ✨</button>
-    `;
+  document.getElementById('celebrate').addEventListener('click', showCake);
+}
 
-    document.getElementById('blow').addEventListener('click', () => {
-      document.querySelector('.content').innerHTML = `
-        <span class="flower">💨🎂✨</span>
-        <h1>Wish sent to the <span>stars!</span></h1>
-        <p>May your dreams bloom beautifully, Cherry. 🌸</p>
-      `;
-    });
-  });
-});
-</script>
-</body>
+function showCake() {
+  content.innerHTML = `
+    <span class="flower">🎂🌸🎂</span>
+    <div class="small">Make a wish, Cherry</div>
+    <h1>Your birthday <span>cake!</span></h1>
+    <p>Close your eyes, make a wish, and blow out the candles. 💗</p>
+    <button id="blow">BLOW THE CANDLES ✨</button>
+  `;
+
+  document.getElementById('blow').addEventListener('click', showWish);
+}
+
+function showWish() {
+  content.innerHTML = `
+    <span class="flower">💨🎂✨</span>
+    <div class="small">A little wish from your Litchi</div>
+    <h1>Wish sent to the <span>stars!</span></h1>
+    <p>May your dreams bloom beautifully, Cherry. 🌸</p>
+    <p>Keep shining, keep creating, and never stop being wonderfully YOU. 💗</p>
+    <button id="again">RELIVE THE MAGIC 🌸</button>
+  `;
+
+  document.getElementById('again').addEventListener('click', showBirthday);
+}
+
+document.getElementById('start').addEventListener('click', showBirthday);
+</script></body>
 </html>
