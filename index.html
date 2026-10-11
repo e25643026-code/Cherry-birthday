@@ -46,21 +46,26 @@ button:active{transform:scale(.96)}
 </div>
 </main>
 <script>
-const petals=document.getElementById('petals');
-function makePetal(){
- const p=document.createElement('span');
- p.className='petal';
- p.textContent=['🌸','✿','❀'][Math.floor(Math.random()*3)];
- p.style.left=Math.random()*100+'%';
- p.style.fontSize=(12+Math.random()*15)+'px';
- const t=7+Math.random()*6;
- p.style.animationDuration=t+'s';
- petals.appendChild(p);
- setTimeout(()=>p.remove(),t*1000);
+const petals = document.getElementById('petals');
+
+function makePetal() {
+  const p = document.createElement('span');
+  p.className = 'petal';
+  p.textContent = ['🌸', '✿', '❀'][Math.floor(Math.random() * 3)];
+  p.style.left = Math.random() * 100 + '%';
+  p.style.fontSize = (12 + Math.random() * 15) + 'px';
+  const t = 7 + Math.random() * 6;
+  p.style.animationDuration = t + 's';
+  petals.appendChild(p);
+  setTimeout(() => p.remove(), t * 1000);
 }
-for(let i=0;i<12;i++)setTimeout(makePetal,i*350);
-setInterval(makePetal,850);
-document.getElementById('start').addEventListener('click',()=>{
+
+for (let i = 0; i < 12; i++) {
+  setTimeout(makePetal, i * 350);
+}
+setInterval(makePetal, 850);
+
+document.getElementById('start').addEventListener('click', () => {
   document.querySelector('.content').innerHTML = `
     <span class="flower">🎈🌸🎈</span>
     <div class="small">TODAY, THE UNIVERSE CELEBRATES YOU</div>
@@ -69,18 +74,29 @@ document.getElementById('start').addEventListener('click',()=>{
     <p>From your Litchi, with a million little wishes. 💗</p>
     <button id="celebrate">LET'S CELEBRATE ✨</button>
   `;
-  for(let i=0;i<45;i++){
-    setTimeout(makePetal,i*80);
-  }
- });
- document.getElementById('celebrate').addEventListener('click',()=>{
-document.querySelector('.content').innerHTML = "<span class="flower">🎂🌸🎂</span> <div class="small">MAKE A WISH, CHERRY</div> <h1>Your birthday <span>cake!</span></h1> <p>Close your eyes, make a wish, and blow out the candles. 💗</p> <button id="blow">BLOW THE CANDLES ✨</button>";
 
-document.getElementById('blow').addEventListener('click',()=>{
-document.querySelector('.content').innerHTML = "<span class="flower">💨🎂✨</span> <h1>Wish sent to the <span>stars!</span></h1> <p>May your dreams bloom beautifully, Cherry. 🌸</p>";
-});
+  for (let i = 0; i < 45; i++) {
+    setTimeout(makePetal, i * 80);
+  }
+
+  document.getElementById('celebrate').addEventListener('click', () => {
+    document.querySelector('.content').innerHTML = `
+      <span class="flower">🎂🌸🎂</span>
+      <div class="small">MAKE A WISH, CHERRY</div>
+      <h1>Your birthday <span>cake!</span></h1>
+      <p>Close your eyes, make a wish, and blow out the candles. 💗</p>
+      <button id="blow">BLOW THE CANDLES ✨</button>
+    `;
+
+    document.getElementById('blow').addEventListener('click', () => {
+      document.querySelector('.content').innerHTML = `
+        <span class="flower">💨🎂✨</span>
+        <h1>Wish sent to the <span>stars!</span></h1>
+        <p>May your dreams bloom beautifully, Cherry. 🌸</p>
+      `;
+    });
+  });
 });
 </script>
-
 </body>
 </html>
