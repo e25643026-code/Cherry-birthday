@@ -1,1 +1,476 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Bestie 💗</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pink: #ff76a8;
+  --purple: #a78bfa;
+  --dark: #170d20;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: Georgia, serif;
+  background: radial-gradient(circle at top, #492044, #170d20 70%);
+  color: white;
+}
+
+.scene {
+  display: none;
+  position: fixed;
+  inset: 0;
+  padding: 25px;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  animation: appear 1s ease;
+}
+
+.scene.active {
+  display: flex;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 4rem);
+  color: #ffb9d2;
+  text-shadow: 0 0 25px #ff4f9a;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color: #ffc6dd;
+  margin-bottom: 20px;
+  font-size: clamp(1.5rem, 6vw, 2.5rem);
+}
+
+p {
+  max-width: 600px;
+  line-height: 1.8;
+  font-size: 1.08rem;
+  margin-bottom: 20px;
+}
+
+button {
+  border: 1px solid #ffc6dd;
+  border-radius: 35px;
+  padding: 13px 25px;
+  background: linear-gradient(135deg, #ff76a8, #b65cff);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 8px;
+  box-shadow: 0 0 18px #ff76a855;
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #ff76a8;
+}
+
+.gift {
+  font-size: 100px;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  filter: drop-shadow(0 0 20px #ff76a8);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-18px) rotate(4deg); }
+}
+
+.heart {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  z-index: 0;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 650px);
+}
+
+.card {
+  width: min(100%, 600px);
+  padding: 25px;
+  border: 1px solid #ffb9d255;
+  border-radius: 25px;
+  background: #ffffff0b;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 35px #ff76a81c;
+  margin: 15px 0;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: min(100%, 500px);
+  margin: 10px 0 20px;
+}
+
+.photo-slot {
+  min-height: 140px;
+  border: 1px dashed #ffb9d2;
+  border-radius: 16px;
+  background: #ffffff0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-slot img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.letter {
+  width: min(100%, 600px);
+  min-height: 230px;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid #ffc6dd77;
+  background: #fff8fc;
+  color: #4c2943;
+  text-align: left;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+textarea {
+  width: min(100%, 600px);
+  min-height: 200px;
+  padding: 18px;
+  border-radius: 15px;
+  border: 1px solid #ffb9d2;
+  background: #fff8fc;
+  color: #4c2943;
+  font: 16px/1.7 Georgia, serif;
+  resize: vertical;
+}
+
+.cake {
+  font-size: 100px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  to { filter: drop-shadow(0 0 28px #ffbb5c); }
+}
+
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.small {
+  font-size: .9rem;
+  opacity: .8;
+}
+
+@media (max-height: 650px) {
+  .scene { padding: 12px; }
+  h1 { margin-bottom: 12px; }
+  p { margin-bottom: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="confetti"></canvas>
+
+<!-- SCENE 1: OPENING -->
+<section class="scene active" id="scene1">
+  <div class="content">
+    <div style="font-size:55px">🌙 ✨ 💗</div>
+    <p>A little surprise made with love...</p>
+    <h1>Hey, Bestie!</h1>
+    <p>I made something special just for you.</p>
+    <div class="gift" onclick="openGift()">🎁</div>
+    <p>Tap the gift to begin 💌</p>
+    <button onclick="openGift()">Open your surprise ✨</button>
+  </div>
+</section>
+
+<!-- SCENE 2: BIRTHDAY REVEAL -->
+<section class="scene" id="scene2">
+  <div class="content">
+    <div style="font-size:60px">🎉 🎀 🎉</div>
+    <h1>HAPPY BIRTHDAY!</h1>
+    <h2 id="friendTitle">To my favourite human 💗</h2>
+    <p>Today deserves a little extra magic, because someone as special as you deserves it all.</p>
+    <button onclick="celebrate(); nextScene(3)">Let's make a memory 💫</button>
+  </div>
+</section>
+
+<!-- SCENE 3: PHOTOS -->
+<section class="scene" id="scene3">
+  <div class="content">
+    <h2>Our Little Memory Lane 📸</h2>
+    <p>Every memory has a story. Add your favourite pictures below.</p>
+
+    <div class="photo-grid">
+      <label class="photo-slot">
+        <span>📷 Photo 1</span>
+        <input type="file" accept="image/*" hidden onchange="addPhoto(this, 'photo1')">
+        <img id="photo1" hidden alt="Memory one">
+      </label>
+
+      <label class="photo-slot">
+        <span>📷 Photo 2</span>
+        <input type="file" accept="image/*" hidden onchange="addPhoto(this, 'photo2')">
+        <img id="photo2" hidden alt="Memory two">
+      </label>
+
+      <label class="photo-slot">
+        <span>📷 Photo 3</span>
+        <input type="file" accept="image/*" hidden onchange="addPhoto(this, 'photo3')">
+        <img id="photo3" hidden alt="Memory three">
+      </label>
+
+      <label class="photo-slot">
+        <span>📷 Photo 4</span>
+        <input type="file" accept="image/*" hidden onchange="addPhoto(this, 'photo4')">
+        <img id="photo4" hidden alt="Memory four">
+      </label>
+    </div>
+
+    <button onclick="nextScene(4)">A letter for you 💌</button>
+  </div>
+</section>
+
+<!-- SCENE 4: YOUR PERSONAL LETTER -->
+<section class="scene" id="scene4">
+  <div class="content">
+    <h2>To My Bestie, With Love 💌</h2>
+    <p>This is YOUR space. Write your own letter below.</p>
+
+    <textarea id="letterInput"
+      placeholder="Dear bestie...
+
+Write your own feelings here.
+Your memories, inside jokes, promises,
+and everything you want her to know...
+
+Love,
+Your name 💗"></textarea>
+
+    <br>
+    <button onclick="saveLetter()">Save my letter 💖</button>
+    <button onclick="nextScene(5)">One last surprise 🎂</button>
+    <p class="small">Your letter stays in this page while it remains open.</p>
+  </div>
+</section>
+
+<!-- SCENE 5: CAKE -->
+<section class="scene" id="scene5">
+  <div class="content">
+    <h1>Make a Wish! ✨</h1>
+    <div class="cake" id="cake">🎂</div>
+    <p id="cakeText">Close your eyes and make a birthday wish!</p>
+    <button onclick="blowCandles()">Blow the candles 🕯️</button>
+    <button onclick="nextScene(6)">Read your letter 💌</button>
+  </div>
+</section>
+
+<!-- SCENE 6: LETTER REVEAL -->
+<section class="scene" id="scene6">
+  <div class="content">
+    <h2>A Little Piece of My Heart 💗</h2>
+    <div class="letter" id="letterDisplay">Your beautiful letter will appear here...</div>
+    <p>May this year bring you happiness, courage, laughter, and countless beautiful memories. 🌷</p>
+    <button onclick="celebrate(); nextScene(7)">One final hug 🫂</button>
+  </div>
+</section>
+
+<!-- SCENE 7: ENDING -->
+<section class="scene" id="scene7">
+  <div class="content">
+    <div style="font-size:65px">💗 🧸 🌷</div>
+    <h1>Love You, Bestie!</h1>
+    <p>No matter how far apart life takes us, I'm always cheering for you.</p>
+    <p>Made with love, just for you. ♡</p>
+    <button onclick="restart()">Relive the surprise ↻</button>
+  </div>
+</section>
+
+<!-- OPTIONAL MUSIC:
+     Upload your own music file to the repository.
+     Rename it birthday.mp3 and uncomment the audio element below. -->
+
+<!-- <audio id="music" src="birthday.mp3" loop></audio> -->
+
+<script>
+function nextScene(number) {
+  document.querySelectorAll('.scene').forEach(scene => {
+    scene.classList.remove('active');
+  });
+
+  document.getElementById('scene' + number).classList.add('active');
+}
+
+function openGift() {
+  nextScene(2);
+  celebrate();
+
+  // Optional music: uncomment after adding the audio element above.
+  // document.getElementById('music').play().catch(() => {});
+}
+
+function saveLetter() {
+  const letter = document.getElementById('letterInput').value.trim();
+
+  if (!letter) {
+    alert('Write your beautiful letter first! 💌');
+    return;
+  }
+
+  document.getElementById('letterDisplay').textContent = letter;
+  alert('Your letter is ready! 💗');
+}
+
+function blowCandles() {
+  document.getElementById('cake').textContent = '🎂💨';
+  document.getElementById('cakeText').textContent =
+    'Your wish has been sent to the universe! ✨💗';
+
+  celebrate();
+}
+
+function restart() {
+  nextScene(1);
+}
+
+function addPhoto(input, id) {
+  const file = input.files[0];
+  if (!file) return;
+
+  const img = document.getElementById(id);
+  const reader = new FileReader();
+
+  reader.onload = function(event) {
+    img.src = event.target.result;
+    img.hidden = false;
+    img.parentElement.querySelector('span').hidden = true;
+  };
+
+  reader.readAsDataURL(file);
+}
+
+/* Floating hearts */
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+
+  const symbols = ['💗', '💕', '✨', '🌸', '💖'];
+  heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (15 + Math.random() * 22) + 'px';
+  heart.style.animationDuration = (5 + Math.random() * 6) + 's';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 11000);
+}
+
+setInterval(createHeart, 500);
+
+/* Confetti celebration */
+const canvas = document.getElementById('confetti');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let animationFrame = null;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+function celebrate() {
+  for (let i = 0; i < 140; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: -20 - Math.random() * canvas.height * 0.4,
+      size: 3 + Math.random() * 6,
+      speed: 2 + Math.random() * 5,
+      drift: (Math.random() - 0.5) * 3,
+      rotation: Math.random() * 6,
+      spin: (Math.random() - 0.5) * 0.2,
+      color: ['#ff76a8', '#ffd166', '#c4b5fd', '#ffffff']
+        [Math.floor(Math.random() * 4)]
+    });
+  }
+
+  if (!animationFrame) animateConfetti();
+}
+
+function animateConfetti() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.y += p.speed;
+    p.x += p.drift;
+    p.rotation += p.spin;
+
+    ctx.save();
+    ctx.translate(p.x, p.y);
+    ctx.rotate(p.rotation);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.6);
+    ctx.restore();
+  });
+
+  particles = particles.filter(p => p.y < canvas.height + 30);
+
+  if (particles.length > 0) {
+    animationFrame = requestAnimationFrame(animateConfetti);
+  } else {
+    animationFrame = null;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+</script>
+
+</body>
+</html>
+
